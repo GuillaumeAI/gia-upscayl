@@ -1,3 +1,12 @@
+
+## --@STCGoal 
+
+* Opportunities to integrate my creative workflows into this UI when requiring upscale (which is mostly in all my process)
+
+----
+ORIGINAL README
+----
+
 <div align="center">
   
 <img src="https://github.com/upscayl/upscayl/assets/25067102/d552a63c-1ec4-4e2b-9865-73567f3cc42e" />
