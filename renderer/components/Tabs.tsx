@@ -22,6 +22,13 @@ const Tabs = ({ selectedTab, setSelectedTab }: TabsProps) => {
         }}>
         Settings
       </a>
+      <a
+        className={`tab ${selectedTab === 2 && "tab-active"}`}
+        onClick={() => {
+          setSelectedTab(2);
+        }}>
+        GIA
+      </a>
     </div>
   );
 };

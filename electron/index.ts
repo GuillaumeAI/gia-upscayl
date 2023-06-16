@@ -63,8 +63,8 @@ app.on("ready", async () => {
 
   mainWindow = new BrowserWindow({
     icon: join(__dirname, "build", "icon.png"),
-    width: 1300,
-    height: 940,
+    width: 1400,
+    height: 999,
     minHeight: 500,
     minWidth: 500,
     show: false,
@@ -363,9 +363,10 @@ ipcMain.on(commands.DOUBLE_UPSCAYL, async (event, payload) => {
   const fullfileName = payload.imagePath.split(slash).slice(-1)[0] as string;
   const fileName = parse(fullfileName).name;
   const outFile =
-    outputDir + slash + fileName + "_upscayl_16x_" + model + "." + saveImageAs;
+    outputDir + slash + fileName + "__x16" + model + "." + saveImageAs; //@q ====HERE====
 
   // UPSCALE
+  //@STCGoal Spawn with adequate Naming
   let upscayl = spawnUpscayl(
     "realesrgan",
     getDoubleUpscaleArguments(
@@ -492,7 +493,9 @@ ipcMain.on(commands.UPSCAYL, async (event, payload) => {
   const fileName = parse(fullfileName).name;
   const fileExt = parse(fullfileName).ext;
 
-  const outFile =
+
+  //@STCIssue HAHA, we are there here :)
+  var outFile =
     outputDir +
     slash +
     fileName +
@@ -502,6 +505,23 @@ ipcMain.on(commands.UPSCAYL, async (event, payload) => {
     model +
     "." +
     saveImageAs;
+//@STCIssue Upscayl Command
+
+
+//upscayl_4x or upscayl_16x
+var fout = outFile.replace("_upscayl_4x_","__x4");
+fout = fout.replace("_upscayl_16x_","__x16");
+fout = fout.replace("RealESRGAN_General_x4_v3","g");
+fout = fout.replace("realesrgan-x4plus-anime","a");
+fout = fout.replace("realesrgan-x4plus","r");
+fout = fout.replace("remacri","i");
+fout = fout.replace("ultramix_balanced","b");
+fout = fout.replace("ultrasharp","s");
+// command[3] = fout;
+
+logit("      SHOULD fixed fout:\n        "+fout );
+outFile = fout;
+//@STCGoal Should we have a short name now :)
 
   // UPSCALE
   if (fs.existsSync(outFile)) {

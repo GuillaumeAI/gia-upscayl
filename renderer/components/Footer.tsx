@@ -13,6 +13,15 @@ function Footer() {
         </a>
       </p>
       <p>
+        Distribution by GuillaumeAI © {new Date().getFullYear()} -{" "}
+        <a
+          className="font-bold"
+          href="https://github.com/GuillaumeAI/gia-upscayl"
+          target="_blank">
+          GIA Upscayling
+        </a>
+      </p>
+      <p>
         By{" "}
         <a
           href="https://github.com/TGS963"

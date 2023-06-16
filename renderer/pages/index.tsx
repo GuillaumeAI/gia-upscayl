@@ -414,7 +414,9 @@ const Home = () => {
     var path = await window.electron.invoke(commands.SELECT_FOLDER);
     if (path !== null) {
       logit("🗂 Setting Output Path: ", path);
+      console.log("=-=-=-=-=-=-=" + path+ "-=-=-=-=--=");
       setOutputPath(path);
+      console.log("=-=-=-=-=-=-=" + path+ "-=-=-=-=--=");
 
       const rememberOutputFolder = localStorage.getItem("rememberOutputFolder");
 
@@ -579,7 +581,7 @@ console.log("====================\n"+"//@STCIssue Setup the Upscale and sending 
           />
         )}
 
-          //@STCGoal Additional Tab to do my process
+          //@STCGoal LeftPaneGIASteps
 
         {selectedTab === 2 && (
           <LeftPaneGIASteps
@@ -589,8 +591,6 @@ console.log("====================\n"+"//@STCIssue Setup the Upscale and sending 
             handleModelChange={handleModelChange}
             outputHandler={outputHandler}
             upscaylHandler={upscaylHandler}
-            batchMode={batchMode}
-            setBatchMode={setBatchMode}
             imagePath={imagePath}
             outputPath={outputPath}
             doubleUpscayl={doubleUpscayl}

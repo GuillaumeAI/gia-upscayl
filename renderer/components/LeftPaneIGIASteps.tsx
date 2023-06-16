@@ -13,8 +13,6 @@ interface IProps {
   handleModelChange: (e: any) => void;
   outputHandler: () => Promise<void>;
   upscaylHandler: () => Promise<void>;
-  batchMode: boolean;
-  setBatchMode: React.Dispatch<React.SetStateAction<boolean>>;
   imagePath: string;
   outputPath: string;
   doubleUpscayl: boolean;
@@ -35,8 +33,6 @@ function LeftPaneIGIASteps({
   handleModelChange,
   outputHandler,
   upscaylHandler,
-  batchMode,
-  setBatchMode,
   imagePath,
   outputPath,
   doubleUpscayl,
@@ -107,7 +103,7 @@ function LeftPaneIGIASteps({
   return (
     <div className="animate-step-in animate flex h-screen flex-col gap-7 overflow-y-auto p-5 overflow-x-hidden">
       {/* BATCH OPTION */}
-      <div className="flex flex-row items-center gap-2">
+      {/* <div className="flex flex-row items-center gap-2">
         <input
           type="checkbox"
           className="toggle"
@@ -118,22 +114,22 @@ function LeftPaneIGIASteps({
           data-tip="This will let you upscale all files in a folder at once">
           Batch Upscale
         </p>
-      </div>
+      </div> */}
 
       {/* STEP 1 */}
       <div data-tip={imagePath}>
-        <p className="step-heading">Step 1</p>
+        {/* <p className="step-heading">Step 1</p> */}
         <button
           className="btn-primary btn"
-          onClick={!batchMode ? selectImageHandler : selectFolderHandler}>
-          Select {batchMode ? "Folder" : "Image"}
+          onClick={ selectImageHandler }>
+          Select { "Image"}
         </button>
       </div>
 
       {/* STEP 2 */}
       <div className="animate-step-in">
-        <p className="step-heading">Step 2</p>
-        <p className="mb-2 text-sm">Select Upscaling Type</p>
+        {/* <p className="step-heading">Step 2</p>
+        <p className="mb-2 text-sm">Select Upscaling Type</p> */}
 
         <Select
           options={modelOptions}
@@ -150,7 +146,7 @@ function LeftPaneIGIASteps({
           value={currentModel}
         />
 
-        {!batchMode && (
+        {true && (
           <div className="mt-4 flex items-center gap-1">
             <input
               type="checkbox"
@@ -169,23 +165,23 @@ function LeftPaneIGIASteps({
               onClick={(e) => {
                 setDoubleUpscayl(!doubleUpscayl);
               }}>
-              Double Upscayl
+              x16
             </p>
-            <button
+            {/* <button
               className="badge-info badge cursor-help"
               data-tip="Enable this option to get a 16x upscayl (we just run upscayl twice). Note that this may not always work properly with all images, for example, images with really large resolutions.">
               i
-            </button>
+            </button> */}
           </div>
         )}
       </div>
 
       {/* STEP 3 */}
       <div className="animate-step-in" data-tip={outputPath}>
-        <p className="step-heading">Step 3</p>
+        {/* <p className="step-heading">Step 3</p>
         <p className="mb-2 text-sm">
-          Defaults to {!batchMode ? "Image's" : "Folder's"} path
-        </p>
+          Defaults to {true ? "Image's" : "Folder's"} path
+        </p> */}
         <button className="btn-primary btn" onClick={outputHandler}>
           Set Output Folder
         </button>
@@ -193,7 +189,7 @@ function LeftPaneIGIASteps({
 
       {/* STEP 4 */}
       <div className="animate-step-in">
-        <p className="step-heading">Step 4</p>
+        {/* <p className="step-heading">Step 4</p> */}
         {dimensions.width && dimensions.height && (
           <p className="mb-2 text-sm">
             Upscale from{" "}
