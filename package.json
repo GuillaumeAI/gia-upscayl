@@ -1,9 +1,9 @@
 {
-  "name": "giaupscayl",
+  "name": "upscayl",
   "private": true,
-  "version": "2.5.2",
-  "productName": "GIAUpscayl",
-  "homepage": "https://github.com/GuillaumeAI/gia-upscayl",
+  "version": "2.5.5",
+  "productName": "Upscayl",
+  "homepage": "https://github.com/TGS963/upscayl",
   "contributors": [
     {
       "name": "Nayam Amarshe",
@@ -14,16 +14,11 @@
       "name": "TGS963",
       "email": "tgs@963.com",
       "url": "https://github.com/TGS963"
-    },
-    {
-      "name": "Jean Guillaume",
-      "email": "contact@guillaumeisabelle.com",
-      "url": "https://github.com/jgwill"
     }
   ],
   "email": "nayam.emikx@aleeas.com",
   "license": "AGPL-3.0",
-  "description": "GuillaumeAI Upscayl - Free and Open Source AI Image Upscaler",
+  "description": "Upscayl - Free and Open Source AI Image Upscaler",
   "keywords": [
     "AI",
     "Upscaler",
@@ -57,8 +52,8 @@
     "publish-mac-app": "tsc && npm run build && electron-builder -m --publish always"
   },
   "build": {
-    "productName": "GIAUpscayl",
-    "appId": "org.giaupscayl.app",
+    "productName": "Upscayl",
+    "appId": "org.upscayl.app",
     "artifactName": "${name}-${version}-${os}.${ext}",
     "asar": true,
     "extraFiles": [
@@ -89,6 +84,10 @@
         "filter": [
           "**/*"
         ]
+      },
+      {
+        "from": "org.upscayl.Upscayl.desktop",
+        "to": "org.upscayl.Upscayl.desktop"
       }
     ],
     "mac": {
@@ -157,7 +156,7 @@
   },
   "devDependencies": {
     "@types/electron": "^1.6.10",
-    "@types/node": "^18.16.18",
+    "@types/node": "^18.15.12",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",
@@ -184,8 +183,8 @@
     "react-compare-slider": "^2.2.0",
     "react-dropzone": "^14.2.3",
     "react-image-zoom": "^1.3.1",
-    "react-select": "^5.7.3",
-    "react-tooltip": "^4.5.1",
+    "react-select": "^5.6.0",
+    "react-tooltip": "^4.5.0",
     "tailwind-scrollbar": "^2.0.1",
     "theme-change": "^2.2.0"
   },

@@ -7,7 +7,6 @@ import ProgressBar from "../components/ProgressBar";
 import RightPaneInfo from "../components/RightPaneInfo";
 import ImageOptions from "../components/ImageOptions";
 import LeftPaneImageSteps from "../components/LeftPaneImageSteps";
-import LeftPaneGIASteps from "../components/LeftPaneIGIASteps";
 import Tabs from "../components/Tabs";
 import SettingsTab from "../components/SettingsTab";
 import { useAtom } from "jotai";
@@ -23,7 +22,6 @@ const Home = () => {
   const [outputPath, setOutputPath] = useState("");
   const [scaleFactor] = useState(4);
   const [progress, setProgress] = useState("");
-  console.log("//@STCIssue Is that what we could change to reduce file width?");
   const [model, setModel] = useState("realesrgan-x4plus");
   const [loaded, setLoaded] = useState(false);
   const [version, setVersion] = useState("");
@@ -202,19 +200,15 @@ const Home = () => {
 
   useEffect(() => {
     setProgress("");
+    setOutputPath("");
   }, [batchMode]);
 
   useEffect(() => {
     if (imagePath.length > 0 && !isVideo) {
-      console.log("\n---------------\n"+
-        "//@STCGoal Here is our image Path:"
-      );
       logit("🖼 imagePath: ", imagePath);
 
       const extension = imagePath.toLocaleLowerCase().split(".").pop();
       logit("🔤 Extension: ", extension);
-      
-      logit("-----------------------------");
 
       if (!allowedFileTypes.includes(extension.toLowerCase())) {
         alert("Please select an image");
@@ -280,16 +274,11 @@ const Home = () => {
     var path = await window.electron.invoke(commands.SELECT_FILE);
 
     if (path !== null) {
-      console.log("\n----------Selected Path--------\n"+
-      "//@STCGoal Our Selected Path\n");
       logit("🖼 Selected Image Path: ", path);
       SetImagePath(path);
       var dirname = path.match(/(.*)[\/\\]/)[1] || "";
       logit("📁 Selected Image Directory: ", dirname);
-      console.log(
-        "//@STCGoal Where Path is Fabriked");
       setOutputPath(dirname);
-      console.log("dirname:"+dirname);
     }
   };
 
@@ -400,10 +389,7 @@ const Home = () => {
     ) {
       alert("Please drag and drop an image");
     } else {
-      console.log(
-        "//@STCIssue Probably might be where the long path is set");
       SetImagePath(filePath);
-      console.log("filePath:"+ filePath);
       var dirname = filePath.match(/(.*)[\/\\]/)[1] || "";
       logit("🗂 Setting output path: ", dirname);
       setOutputPath(dirname);
@@ -414,9 +400,7 @@ const Home = () => {
     var path = await window.electron.invoke(commands.SELECT_FOLDER);
     if (path !== null) {
       logit("🗂 Setting Output Path: ", path);
-      console.log("=-=-=-=-=-=-=" + path+ "-=-=-=-=--=");
       setOutputPath(path);
-      console.log("=-=-=-=-=-=-=" + path+ "-=-=-=-=--=");
 
       const rememberOutputFolder = localStorage.getItem("rememberOutputFolder");
 
@@ -437,7 +421,6 @@ const Home = () => {
       setUpscaledImagePath("");
     }
 
-console.log("====================\n"+"//@STCIssue Setup the Upscale and sending - might be here");
     if (!isVideo && (imagePath !== "" || batchFolderPath !== "")) {
       setProgress("Hold on...");
 
@@ -580,28 +563,6 @@ console.log("====================\n"+"//@STCIssue Setup the Upscale and sending 
             logData={logData}
           />
         )}
-
-          //@STCGoal LeftPaneGIASteps
-
-        {selectedTab === 2 && (
-          <LeftPaneGIASteps
-            progress={progress}
-            selectImageHandler={selectImageHandler}
-            selectFolderHandler={selectFolderHandler}
-            handleModelChange={handleModelChange}
-            outputHandler={outputHandler}
-            upscaylHandler={upscaylHandler}
-            imagePath={imagePath}
-            outputPath={outputPath}
-            doubleUpscayl={doubleUpscayl}
-            setDoubleUpscayl={setDoubleUpscayl}
-            dimensions={dimensions}
-            setGpuId={setGpuId}
-            setModel={setModel}
-            setSaveImageAs={setSaveImageAs}
-          />
-        )}
-
         {/* )} */}
         <Footer />
       </div>

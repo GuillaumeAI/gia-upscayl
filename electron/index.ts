@@ -63,8 +63,8 @@ app.on("ready", async () => {
 
   mainWindow = new BrowserWindow({
     icon: join(__dirname, "build", "icon.png"),
-    width: 1400,
-    height: 999,
+    width: 1300,
+    height: 940,
     minHeight: 500,
     minWidth: 500,
     show: false,
@@ -363,10 +363,9 @@ ipcMain.on(commands.DOUBLE_UPSCAYL, async (event, payload) => {
   const fullfileName = payload.imagePath.split(slash).slice(-1)[0] as string;
   const fileName = parse(fullfileName).name;
   const outFile =
-    outputDir + slash + fileName + "__x16" + model + "." + saveImageAs; //@q ====HERE====
+    outputDir + slash + fileName + "_upscayl_16x_" + model + "." + saveImageAs;
 
   // UPSCALE
-  //@STCGoal Spawn with adequate Naming
   let upscayl = spawnUpscayl(
     "realesrgan",
     getDoubleUpscaleArguments(
@@ -462,8 +461,6 @@ ipcMain.on(commands.DOUBLE_UPSCAYL, async (event, payload) => {
         logit
       );
 
-      
-
       childProcesses.push(upscayl2);
 
       upscayl2.process.stderr.on("data", onData2);
@@ -493,9 +490,7 @@ ipcMain.on(commands.UPSCAYL, async (event, payload) => {
   const fileName = parse(fullfileName).name;
   const fileExt = parse(fullfileName).ext;
 
-
-  //@STCIssue HAHA, we are there here :)
-  var outFile =
+  const outFile =
     outputDir +
     slash +
     fileName +
@@ -505,23 +500,6 @@ ipcMain.on(commands.UPSCAYL, async (event, payload) => {
     model +
     "." +
     saveImageAs;
-//@STCIssue Upscayl Command
-
-
-//upscayl_4x or upscayl_16x
-var fout = outFile.replace("_upscayl_4x_","__x4");
-fout = fout.replace("_upscayl_16x_","__x16");
-fout = fout.replace("RealESRGAN_General_x4_v3","g");
-fout = fout.replace("realesrgan-x4plus-anime","a");
-fout = fout.replace("realesrgan-x4plus","r");
-fout = fout.replace("remacri","i");
-fout = fout.replace("ultramix_balanced","b");
-fout = fout.replace("ultrasharp","s");
-// command[3] = fout;
-
-logit("      SHOULD fixed fout:\n        "+fout );
-outFile = fout;
-//@STCGoal Should we have a short name now :)
 
   // UPSCALE
   if (fs.existsSync(outFile)) {
@@ -544,16 +522,19 @@ outFile = fout;
       logit
     );
 
-console.log("BRUH: " + getSingleImageArguments(
-  inputDir,
-  fullfileName,
-  outFile,
-  isDefaultModel ? modelsPath : customModelsFolderPath ?? modelsPath,
-  model,
-  scale,
-  gpuId,
-  saveImageAs
-))
+    console.log(
+      "BRUH: " +
+        getSingleImageArguments(
+          inputDir,
+          fullfileName,
+          outFile,
+          isDefaultModel ? modelsPath : customModelsFolderPath ?? modelsPath,
+          model,
+          scale,
+          gpuId,
+          saveImageAs
+        )
+    );
     childProcesses.push(upscayl);
 
     stopped = false;
@@ -671,24 +652,31 @@ ipcMain.on(commands.FOLDER_UPSCAYL, async (event, payload) => {
 });
 
 //------------------------Auto-Update Code-----------------------------//
+autoUpdater.autoInstallOnAppQuit = false;
+
 // ! AUTO UPDATE STUFF
-autoUpdater.on("update-available", ({ releaseNotes, releaseName }) => {
-  const dialogOpts = {
-    type: "info",
-    buttons: ["Ok cool"],
-    title: "New Upscayl Update",
-    message: releaseName as string,
-    detail:
-      "A new version is being downloaded. Please check GitHub for more details.",
-  };
-  logit("📲 Update Available", releaseName, releaseNotes);
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {});
-});
+// autoUpdater.on("update-available", ({ version, releaseNotes, releaseName }) => {
+//   autoUpdater.autoInstallOnAppQuit = false;
+//   const dialogOpts = {
+//     type: "info",
+//     buttons: ["Sweet!"],
+//     title: "New Upscayl Update!",
+//     message: releaseName as string,
+//     detail: `Upscayl ${version} is available! It is being downloaded in the background. Please check GitHub for more details.`,
+//   };
+//   logit("📲 Update Available", releaseName, releaseNotes);
+//   dialog.showMessageBox(dialogOpts).then((returnValue) => {
+//     if (returnValue.response === 0) {
+//       logit("📲 Update Downloading");
+//     }
+//   });
+// });
 
 autoUpdater.on("update-downloaded", (event) => {
+  autoUpdater.autoInstallOnAppQuit = false;
   const dialogOpts: MessageBoxOptions = {
     type: "info",
-    buttons: ["Restart", "Later"],
+    buttons: ["Install update", "No Thanks"],
     title: "New Upscayl Update",
     message: event.releaseName as string,
     detail:
@@ -696,7 +684,11 @@ autoUpdater.on("update-downloaded", (event) => {
   };
   logit("✅ Update Downloaded");
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall();
+    if (returnValue.response === 0) {
+      autoUpdater.quitAndInstall();
+    } else {
+      logit("🚫 Update Installation Cancelled");
+    }
   });
 });
 
