@@ -1,9 +1,9 @@
 {
-  "name": "upscayl",
+  "name": "giaupscayl",
   "private": true,
   "version": "2.5.2",
-  "productName": "Upscayl",
-  "homepage": "https://github.com/TGS963/upscayl",
+  "productName": "GIAUpscayl",
+  "homepage": "https://github.com/GuillaumeAI/gia-upscayl",
   "contributors": [
     {
       "name": "Nayam Amarshe",
@@ -14,11 +14,16 @@
       "name": "TGS963",
       "email": "tgs@963.com",
       "url": "https://github.com/TGS963"
+    },
+    {
+      "name": "Jean Guillaume",
+      "email": "contact@guillaumeisabelle.com",
+      "url": "https://github.com/jgwill"
     }
   ],
   "email": "nayam.emikx@aleeas.com",
   "license": "AGPL-3.0",
-  "description": "Upscayl - Free and Open Source AI Image Upscaler",
+  "description": "GuillaumeAI Upscayl - Free and Open Source AI Image Upscaler",
   "keywords": [
     "AI",
     "Upscaler",
@@ -52,8 +57,8 @@
     "publish-mac-app": "tsc && npm run build && electron-builder -m --publish always"
   },
   "build": {
-    "productName": "Upscayl",
-    "appId": "org.upscayl.app",
+    "productName": "GIAUpscayl",
+    "appId": "org.giaupscayl.app",
     "artifactName": "${name}-${version}-${os}.${ext}",
     "asar": true,
     "extraFiles": [
