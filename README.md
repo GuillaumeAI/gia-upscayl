@@ -3,6 +3,21 @@
 
 * Opportunities to integrate my creative workflows into this UI when requiring upscale (which is mostly in all my process)
 
+## changed 
+
+### Shortened names
+
+|  model     |  shortened name     |       |
+|  ---  |  ---  |  ---  |
+|   upscayl_4x_RealESRGAN_General_x4_v3    |  __x4g     |       |
+|   upscayl_4x_remacri    |  __x4i     |       |
+|  upscayl_4x_realesrgan-x4plus-anime     |  __x4a     |       |
+|  upscayl_4x_realesrgan-x4plus     |  __x4r     |       |
+| upscayl_4x_ultramix_balanced | __x4b | |
+| upscayl_4x_ultrasharp | __x4s | |
+
+
+
 ----
 ORIGINAL README
 ----
