@@ -7,7 +7,7 @@
 
 ### Shortened names
 
-|  model     |  shortened name     |       |
+|  model/old suffix     |  shortened name suffix     |       |
 |  ---  |  ---  |  ---  |
 |   upscayl_4x_RealESRGAN_General_x4_v3    |  __x4g     |       |
 |   upscayl_4x_remacri    |  __x4i     |       |
