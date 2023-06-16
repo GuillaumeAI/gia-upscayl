@@ -19,7 +19,7 @@ jobs:
           sudo apt-get install elfutils -y
           sudo apt install rpm
           npm install
-          GH_TOKEN=${{ secrets.GITHUB_TOKEN }} npm run publish-linux-app
+          GH_TOKEN=${{ secrets.GH_TOKEN }} npm run publish-linux-app
 
   macos:
     runs-on: macos-11
