@@ -7,6 +7,7 @@ import ProgressBar from "../components/ProgressBar";
 import RightPaneInfo from "../components/RightPaneInfo";
 import ImageOptions from "../components/ImageOptions";
 import LeftPaneImageSteps from "../components/LeftPaneImageSteps";
+import LeftPaneGIASteps from "../components/LeftPaneIGIASteps";
 import Tabs from "../components/Tabs";
 import SettingsTab from "../components/SettingsTab";
 import { useAtom } from "jotai";
