@@ -2,6 +2,8 @@
 //@STCIssue Upscayl Command
 //@a Insert at Line 505 of index.ts
 
+/**
+ * 
 //upscayl_4x or upscayl_16x
 var fout = outFile.replace("_upscayl_4x_", "__x4");
 fout = fout.replace("_upscayl_16x_", "__x16");
@@ -16,3 +18,5 @@ fout = fout.replace("ultrasharp", "s");
 logit("      SHOULD fixed fout:\n        " + fout);
 outFile = fout;
 //@STCGoal Should we have a short name now :)
+
+*/

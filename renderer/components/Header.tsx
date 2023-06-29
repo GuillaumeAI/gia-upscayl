@@ -1,7 +1,7 @@
 import React from "react";
 
+//@STCGoal Header of the App on the Left
 export default function Header({ version }: { version: string }) {
-  //@STCGoal Header of the App on the Left
   return (
     <a
       href="https://github.com/GuillaumeAI/gia-upscayl"
