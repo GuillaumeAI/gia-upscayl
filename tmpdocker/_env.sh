@@ -12,6 +12,7 @@ dkhostname=$containername
 
 
 dkcommand=bash #command to execute (default is the one in the dockerfile)
+dkcommand=giaupscayl.sh
 
 #dkextra=" -v \$dworoot/x:/x -p 2288:2288 "
 
