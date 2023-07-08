@@ -25,16 +25,16 @@ WORKDIR /bin
 #/resources/linux/bin
 # COPY ./resources/linux/bin .
 
-WORKDIR /install 
-COPY downloads-gia-upscayl/upscayl-2.5.5-linux.deb .
+#WORKDIR /install 
+#COPY downloads-gia-upscayl/upscayl-2.5.5-linux.deb .
 
-RUN \
-    --mount=type=cache,target=/var/cache/apt \
-  apt install -y ./upscayl-2.5.5-linux.deb
+#RUN \
+#    --mount=type=cache,target=/var/cache/apt \
+#  apt install -y ./upscayl-2.5.5-linux.deb
 
-RUN rm upscayl-2.5.5-linux.deb
+#RUN rm upscayl-2.5.5-linux.deb
 
-WORKDIR /work
+#WORKDIR /work
 
 #RUN \
 #    --mount=type=cache,target=/var/cache/apt \
@@ -66,11 +66,12 @@ RUN echo "PATH=\$PATH:/opt/realsrgan" >> ~/.bashrc && \
 	echo "export PATH" >> ~/.bashrc && \
         echo "alias rgan=/opt/realsrgan/realesrgan-ncnn-vulkan " >> ~/.bashrc
 #<<<
-RUN \
-    --mount=type=cache,target=/var/cache/apt \
-  apt install -y libvulkan1 vulkan-tools vulkan-utils libvulkan-dev
+#RUN \
+#    --mount=type=cache,target=/var/cache/apt \
+#  apt install -y libvulkan1 vulkan-tools vulkan-utils libvulkan-dev
 
-RUN \
-    --mount=type=cache,target=/var/cache/apt \
-  apt install -y	mesa-vulkan-drivers
+#RUN \
+#    --mount=type=cache,target=/var/cache/apt \
+#  apt install -y	mesa-vulkan-drivers
 WORKDIR /work
+
