@@ -58,3 +58,5 @@ _tst_up__win__Ellia_no_230603b__IMG_3925_MORE_realesrgan-x4plus.PNG
 _tst_up__win__Ellia_no_230603b__IMG_3925.PNG
 Ellia_no_230603b__IMG_3925.PNG
 resources/win/bin/models/
+
+publish_env_set.ps1
