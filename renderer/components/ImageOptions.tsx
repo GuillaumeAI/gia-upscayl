@@ -23,8 +23,8 @@ const ImageOptions = ({
     <div className="animate rounded-btn collapse fixed top-1 z-50 m-2 backdrop-blur-lg">
       <input type="checkbox" className="peer" />
       {/* <div className="peer-checked:outline-title-none collapse-title bg-opacity-25 text-center text-sm font-semibold uppercase backdrop-blur-2xl peer-checked:bg-base-300 peer-checked:text-base-content"> */}
-      <div className="outline-title peer-checked:outline-title-none collapse-title text-center text-sm font-semibold uppercase text-black mix-blend-difference outline-2 peer-checked:bg-base-300 peer-checked:text-base-content">
-        Show/Hide Image Settings
+      <div className="outline-title peer-checked:outline-title-none collapse-title text-center text-sm font-semibold uppercase text-black mix-blend-difference outline-2 peer-checked:bg-base-300 peer-checked:text-base-content">        
+        ...
       </div>
 
       <div className="collapse-content bg-base-100 text-base-content">
@@ -36,7 +36,7 @@ const ImageOptions = ({
             <div className="flex flex-row items-center gap-2">
               <p className="w-20">Zoom:</p>
               <button
-                className={`btn-primary btn ${
+                className={`btn-primary btnpc btn ${
                   zoomAmount === "100%" ? "btn-secondary" : "btn-primary"
                 }`}
                 onClick={() => {
@@ -46,7 +46,7 @@ const ImageOptions = ({
                 100%
               </button>
               <button
-                className={`btn-primary btn ${
+                className={`btn-primary btnpc btn ${
                   zoomAmount === "125%" ? "btn-secondary" : "btn-primary"
                 }`}
                 onClick={() => {
@@ -56,7 +56,7 @@ const ImageOptions = ({
                 125%
               </button>
               <button
-                className={`btn-primary btn ${
+                className={`btn-primary btnpc btn ${
                   zoomAmount === "150%" ? "btn-secondary" : "btn-primary"
                 }`}
                 onClick={() => {
@@ -66,7 +66,7 @@ const ImageOptions = ({
                 150%
               </button>
               <button
-                className={`btn-primary btn ${
+                className={`btn-primary btnpc btn ${
                   zoomAmount === "175%" ? "btn-secondary" : "btn-primary"
                 }`}
                 onClick={() => {
@@ -76,7 +76,7 @@ const ImageOptions = ({
                 175%
               </button>
               <button
-                className={`btn-primary btn ${
+                className={`btn-primary btnpc btn ${
                   zoomAmount === "200%" ? "btn-secondary" : "btn-primary"
                 }`}
                 onClick={() => {

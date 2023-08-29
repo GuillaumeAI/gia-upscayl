@@ -122,7 +122,7 @@ function LeftPaneIGIASteps({
         <button
           className="btn-primary btn"
           onClick={ selectImageHandler }>
-          Select { "Image"}
+          Select Input { "Image"}
         </button>
       </div>
 
@@ -183,8 +183,11 @@ function LeftPaneIGIASteps({
           Defaults to {true ? "Image's" : "Folder's"} path
         </p> */}
         <button className="btn-primary btn" onClick={outputHandler}>
-          Set Output Folder
-        </button>
+          Set Output Folder 
+        </button><br />
+        <p className="def-folder">
+        (default current folder)
+        </p>
       </div>
 
       {/* STEP 4 */}
@@ -207,7 +210,7 @@ function LeftPaneIGIASteps({
           className="btn-accent btn"
           onClick={upscaylHandler}
           disabled={progress.length > 0}>
-          {progress.length > 0 ? "Upscayling⏳" : "Upscayl"}
+          {progress.length > 0 ? "Upscayling⏳" : "Let's Go"}
         </button>
       </div>
 

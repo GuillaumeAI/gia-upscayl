@@ -548,7 +548,28 @@ console.log("====================\n"+"//@STCIssue Setup the Upscale and sending 
             setIsVideo={setIsVideo}
           />
         ) : ( */}
+
+        
         {selectedTab === 0 && (
+          <LeftPaneGIASteps
+            progress={progress}
+            selectImageHandler={selectImageHandler}
+            selectFolderHandler={selectFolderHandler}
+            handleModelChange={handleModelChange}
+            outputHandler={outputHandler}
+            upscaylHandler={upscaylHandler}
+            imagePath={imagePath}
+            outputPath={outputPath}
+            doubleUpscayl={doubleUpscayl}
+            setDoubleUpscayl={setDoubleUpscayl}
+            dimensions={dimensions}
+            setGpuId={setGpuId}
+            setModel={setModel}
+            setSaveImageAs={setSaveImageAs}
+          />
+        )}
+
+        {selectedTab === 1 && (
           <LeftPaneImageSteps
             progress={progress}
             selectImageHandler={selectImageHandler}
@@ -569,7 +590,7 @@ console.log("====================\n"+"//@STCIssue Setup the Upscale and sending 
           />
         )}
 
-        {selectedTab === 1 && (
+        {selectedTab === 2 && (
           <SettingsTab
             batchMode={batchMode}
             setModel={setModel}
@@ -581,26 +602,7 @@ console.log("====================\n"+"//@STCIssue Setup the Upscale and sending 
           />
         )}
 
-          //@STCGoal LeftPaneGIASteps
 
-        {selectedTab === 2 && (
-          <LeftPaneGIASteps
-            progress={progress}
-            selectImageHandler={selectImageHandler}
-            selectFolderHandler={selectFolderHandler}
-            handleModelChange={handleModelChange}
-            outputHandler={outputHandler}
-            upscaylHandler={upscaylHandler}
-            imagePath={imagePath}
-            outputPath={outputPath}
-            doubleUpscayl={doubleUpscayl}
-            setDoubleUpscayl={setDoubleUpscayl}
-            dimensions={dimensions}
-            setGpuId={setGpuId}
-            setModel={setModel}
-            setSaveImageAs={setSaveImageAs}
-          />
-        )}
 
         {/* )} */}
         <Footer />

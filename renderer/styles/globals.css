@@ -161,3 +161,23 @@
     transform: translateY(0px);
   }
 }
+
+button {
+  min-width: 320px;
+}
+.react-select-container {
+  
+  min-width: 320px;
+}
+
+.animate-step-in {
+  min-width: 320px;
+
+}
+.def-folder {
+  text-align: right;
+}
+
+.btnpc {
+  min-width: 180px;
+}
