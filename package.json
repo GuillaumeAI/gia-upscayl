@@ -1,9 +1,9 @@
 {
-  "name": "upscayl",
+  "name": "giaupscayl",
   "private": true,
-  "version": "2.5.6",
-  "productName": "Upscayl",
-  "homepage": "https://github.com/TGS963/upscayl",
+  "version": "2.5.7",
+  "productName": "GIAUpscayl",
+  "homepage": "https://github.com/GuillaumeAI/gia-upscayl",
   "contributors": [
     {
       "name": "Nayam Amarshe",
@@ -14,11 +14,16 @@
       "name": "TGS963",
       "email": "tgs@963.com",
       "url": "https://github.com/TGS963"
+    },
+    {
+      "name": "JGWill",
+      "email": "jgwill@gmail.com",
+      "url": "https://github.com/jgwill"
     }
   ],
   "email": "nayam.emikx@aleeas.com",
   "license": "AGPL-3.0",
-  "description": "Upscayl - Free and Open Source AI Image Upscaler",
+  "description": "GIAUpscayl - Free and Open Source AI Image Upscaler with GuillaumeAI customization",
   "keywords": [
     "AI",
     "Upscaler",
@@ -27,7 +32,8 @@
     "Topaz Gigapixel",
     "Linux",
     "KDE",
-    "Gnome"
+    "Gnome",
+    "GuillaumeAI"
   ],
   "main": "main/index.js",
   "scripts": {
@@ -52,8 +58,8 @@
     "publish-mac-app": "tsc && npm run build && electron-builder -m --publish always"
   },
   "build": {
-    "productName": "Upscayl",
-    "appId": "org.upscayl.app",
+    "productName": "GIAUpscayl",
+    "appId": "org.giaupscayl.app",
     "artifactName": "${name}-${version}-${os}.${ext}",
     "asar": true,
     "extraFiles": [
@@ -129,10 +135,10 @@
         "deb",
         "rpm"
       ],
-      "maintainer": "Nayam Amarshe <simplelogin-newsletter.j1zez@aleeas.com>",
+      "maintainer": "Guillaume Descoteaux-Isabelle <jgwill@gmail.com>",
       "category": "Graphics;2DGraphics;RasterGraphics;ImageProcessing;",
       "synopsis": "AI Image Upscaler",
-      "description": "Free and Open Source AI Image Upscaler"
+      "description": "Free and Open Source AI Image Upscaler with GuillaumeAI customization"
     },
     "win": {
       "publish": [
