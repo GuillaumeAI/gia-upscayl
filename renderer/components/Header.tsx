@@ -14,7 +14,7 @@ export default function Header({ version }: { version: string }) {
           <h1 className="text-3xl font-bold">
             GIAUpscayl <span className="text-xs">{version}</span>
           </h1>
-          <p className="">GuillaumeAI  Upscaling</p>
+          <p className="">GuillaumeAI's Upscayler</p>
         </div>
       </div>
     </a>
