@@ -1,4 +1,15 @@
 
+## --@STCGoal Proto: More Tabs and Post Action 
+
+### such as 
+
+* Write Markdown
+* Discord Integration
+* Call Webhook
+* Publish Image to CDN
+* Write into Database
+* Generate JSON Metadata
+
 ## --@STCGoal 
 
 * Opportunities to integrate my creative workflows into this UI when requiring upscale (which is mostly in all my process)
