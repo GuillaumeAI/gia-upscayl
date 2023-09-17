@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../giar-Real-ESRGAN"
+		},
+		{
+			"path": "B:/Dropbox/aellia"
+		}
+	],
+	"settings": {
+		"npm-scripts.showStartNotification": false
+	}
+}
