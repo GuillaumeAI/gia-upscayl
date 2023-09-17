@@ -60,3 +60,9 @@ Ellia_no_230603b__IMG_3925.PNG
 resources/win/bin/models/
 
 publish_env_set.ps1
+resources/**/**/*png
+.env
+bin/giaupscayl-ubuntu18
+bin/giaupscayl-ubuntu20
+resources/linux/bin/models
+tests
